@@ -1,0 +1,136 @@
+spring:
+  profiles:
+    active: prod
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: false # we use gulp + BrowserSync for livereload
+  jackson:
+    serialization.indent_output: true
+  data:
+    mongodb:
+      uri: mongodb://10.8.6.30:27017
+      database: pangolin_common_db
+  rabbitmq:
+    username: admin
+    password: admin
+    host: 10.8.6.30
+    virtual-host: admin
+    port: 5672
+  mail:
+    host: smtp.nuoyuan.com.cn
+    username: R.M.Dnuoyuan@nuoyuan.com.cn
+    password: password_1
+    port: 465
+    properties:
+      mail:
+        smtp:
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+            port: 465
+          auth: true
+          starttls:
+            enable: true
+            required: true
+  freemarker:
+    enabled: false
+eureka:
+  instance:
+    hostname: common-service
+    prefer-ip-address: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+pangolin:
+  call-server:
+    secret: e10adc3949ba59abbe56e057f20f883e
+    host: m.icsoc.net/v2/wintelapi/webcall
+    protocol: http
+    port: 80
+    two-way-interface: /cti
+  sma:
+    seed: abc
+    smaUrl:  http://116.236.220.210:18082/sma/
+    sysTarget: mr.cui
+  message:
+    url: http://sms.zzlgroup.com/sms/sendMsg.html
+    urlQueue: http://sms.zzlgroup.com/sms/querySmsRecordMinute.html
+    channel: 5
+    sysNumber: cuibei_business
+    seed: zzl_apt
+    verificationCode: 123654
+  zhongtong-server:
+    cti: http://m.icsoc.net/v2/wintelapi/webcall/cti
+    webCall1800: http://m.icsoc.net/v2/wintelapi/webcall/webcall800
+    callout: http://m.icsoc.net/v2/wintelapi/detail/callout
+    downloadrRecord: http://m.icsoc.net/v2/wintelapi/record/playrecord
+    enterprise-code: 4216052701
+    proceedSign: 59715406
+    secret: 6b21a1c997dcea6a20c3181677c20744
+    recordlist: http://m.icsoc.net/v2/wintelapi/record/recordlist
+  yunyi-server:
+    host: 116.236.220.211
+    port: 12345
+    timeout: 10000000
+    customerDisplayNum: 51300794
+    agentPwd : zhiwang123
+  hantian-server:
+    host: 192.168.3.16
+    port: 8088
+    callengine: http://${pangolin.hantian-server.host}:${pangolin.hantian-server.port}/callengine/http/operation
+    cdr: http://${pangolin.hantian-server.host}:${pangolin.hantian-server.port}/callengine/http/pull_cdr
+    record: http://${pangolin.hantian-server.host}:${pangolin.hantian-server.port}/recordings
+    token:
+  jiguang:
+    appKey: 79ddc73963c2e534c2bbce00
+    masterSecret: 8a7f887494a570e3b4420b11
+    msgUrl: https://api.sms.jpush.cn/v1/messages
+  smsVariable:
+    account: N3207154
+    pswd: dAJLRXFC3l9097
+    smsVariableUrl: http://smssh1.253.com/msg/send/json
+  winnerLook:
+    userCode: ZWXXYX
+    userPass: Qjg888888
+    lookUrl: http://112.124.24.5/api/MsgSend.asmx/SendMsg
+    channel: 52
+  aliyun:
+    product: Dysmsapi
+    domain: dysmsapi.aliyuncs.com
+    accessKeyId: LTAIAgxYdlgmOCtw
+    accessKeySecret: HKcYeDkCWUxZKHXhdTueJ892qPXFKb
+    signName: 高贝贝
+
+dongfeng:
+  #征信配置参数
+  creditIP: http://10.8.5.59:8001
+  creditPort: 8001
+  creditKey: 999
+  creditVersion: 1
+  appId: 12345
+  #电子签章参数
+  sealUrl: http://10.8.6.15:9230/Seal/services/SealService?wsdl
+  sealAC: http://serv
+  sealFileName: testNo5.pdf
+  sealFilePath: http://10.8.6.15:9230/Seal/testNo5.pdf
+
+server:
+  port: 9002
+
+tsSign:
+  projectId: 1111565887
+  projectSecret: ebf0122d333866b64394e6cc089e454b
+  apiUrl: http://openapi.tsign.cn:8080/tgmonitor/rest/app!getAPIInfo2
+  proxyIp: 10.8.5.76
+  proxyPort: 3128
+  orgName: 创格融资租赁有限公司
+  orgType: 0
+  orgRegType: MERGE
+  orgCode: 91310115MA1K3LDH2C
+  orgAddress: 中国（上海）自由贸易试验区源深路317号5楼
+  orgUserType: 1
+  orgAgentName: 曾涛
+  orgAgentIdNo: 420984198602016095
